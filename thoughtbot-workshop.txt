@@ -1,0 +1,112 @@
+Gus - Instructor
+
+Purpose: Create twitter clone.
+
+Check migrations always, create in db and then do validations in reference to what is on the db.
+
+Keep puplic interfaces as small as possible
+
+Application
+
+ngrock - be able to share your rails application by giving you a link and sending it to someone else
+
+tmate - application to share your terminal
+
+controllers should have max 7 methods. 
+
+All the normal ones you know about.
+
+check on routes contstraints. 
+
+
+Routes tell you everything about the application. Keep them clean.
+
+if useing resources 'something' then it means you are lazy.
+
+Use only[:actions]
+
+You can do relationships while creating the model. For ex
+
+rails g model Shout body user:belongs_to
+
+
+ROUTES: Vanity routes = If they help express what you are trying to accomplish better, use them. Example in the user > member route for following and not following users.
+
+
+#lunch
+
+bother to work by yourself. Won't learn. Won't challenge yourself by being challenged by someone else.
+
+
+classes represent a definition of what an object is
+
+
+if you can remove if condition fomr views. Please do
+
+Had issue in following relationship model, check class name since it's self referencing
+
+Person behind me had a user for hstore in a way of replacing polymorphism. With this hes able to accomplish STI.
+
+
+
+Check reversible migrations. Check the create_text_shouts migration file. this assumes that it's changing from a current database to the next
+
+
+
+rake db:migrate:redo. -> Good way to test complex migrations. It will rollback down, and redo migration.
+
+
+gux does a lot of refacotring of methods. Even nested ones for one lines. shout helper can be a good exmaple
+
+Look into paperclip and polyphormic associations.
+
+sandy man rules
+
+
+check omniref for ruby things
+
+wehn creating helpers. it will render the last line. So if you have blocks, use the + sign to concatenate them and it will render the whole block.
+
+
+find_each method is a better instead of Model.all.each (it will instantiate in blocks (ex take 100 instances and run the block)
+
+
+rake use rake db:schema:load when moving to new systems. You do not need to run all the migrations
+
+make sure all public method read really well
+
+private methods do dirty work
+
+Good to do extract method patterns (shout_helper)
+
+reduce god objects (decoupling) (god knows all about hte object and the objects know all about the god)
+
+be defensive around main objects in an applications that have a good chance of being god objects...in this case, users and shouts.
+
+defensive approach done in shouts (look at methods).
+
+There was no reason to have the constant ReShout inside the user model
+
+
+
+
+#SEARCHING# - Specifically searching across multiple models.
+
+(Solar with sunspot for this situations)
+
+Options
+
+downside of using observers: rails are not transparent because they are set at config time.
+Really hard to turn them off.
+Callbacks (Gus hates)
+
+Use decorators.
+
+
+Views that aggregate information. Downside: Rails doesnt handle views very well.
+
+Searching conclusion - Use solar/sunspot for searching within multiple models
+
+See shout model when pushed to get an idea how the solar was used to index and search the polymorphic data.
+
+Check into concerns to skinnize models and other things. just search for it. 

@@ -1,0 +1,32 @@
+* {
+  font-family: 'Tahoma'
+}
+
+.shout { 
+    padding: 2px;
+    margin-bottom: 7px;
+    border-radius: 5px;
+
+  a {
+    text-decoration: none;
+  }
+
+  form {
+    display:  inline;
+  }
+}
+
+#shout_content_body {
+  border-radius: 5px;
+  width: 30%;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  padding: 3px;
+  :active {
+    border-color: blue;
+  }
+}
+
+.reshout {
+  border: 1px dashed #333;
+}
