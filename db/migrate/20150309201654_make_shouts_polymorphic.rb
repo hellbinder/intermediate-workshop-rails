@@ -6,7 +6,7 @@ class MakeShoutsPolymorphic < ActiveRecord::Migration
 
   def change
     add_column :shouts, :content_type, :string
-    add_column :shouts, :content_id, :string
+    add_column :shouts, :content_id, :integer
 
     Shout.find_each do |shout|
       reversible do |dir|

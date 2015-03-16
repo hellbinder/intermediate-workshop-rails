@@ -3,7 +3,7 @@ class Dashboard
     @user = user
   end
 
-  def feeds(feed_class = Feed) #dependency injection
+  def feed(feed_class = Feed) #dependency injection
     scope = Shout.without_reshouts_for(user)
     feed_class.new(feed_ids, scope)
   end

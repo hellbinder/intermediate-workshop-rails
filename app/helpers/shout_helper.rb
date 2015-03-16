@@ -11,7 +11,7 @@ module ShoutHelper
 
   def reshout_button(shout)
     if current_user.reshouted?(shout)
-      button_to "Undo Reshout", unreshout_shout_path(shout), 
+      button_to "Undo Reshout", unreshout_shout_path(shout),
         method: :delete
     else
       button_to "Reshout", reshout_shout_path(shout),
@@ -29,12 +29,5 @@ module ShoutHelper
 
   def reshout_disabled?(shout)
     current_user.owns?(shout)
-  end
-
-  def reshout_params(shout)
-    { 
-      "shout[content_type]" => "ReShout",
-      "shout[content][shout_id]" => shout.id
-    }
   end
 end

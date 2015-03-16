@@ -1,7 +1,10 @@
+<%= link_to root_url do %>
+  <h3>Shouter!!</h3>
+<% end %>
 <% if signed_in? %>
   Welcome <%= current_user.username %>
   <%= link_to 'Sign out', session_path, method: :delete %>
 <% else %>
   <%= link_to 'Sign up', new_user_path %> |
   <%= link_to 'Sign in', new_session_path %>
-<% end %>
+<% end %> 

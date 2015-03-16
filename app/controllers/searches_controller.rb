@@ -1,18 +1,17 @@
 class SearchesController < ApplicationController
-
   def show
     @results = perform_search.results
   end
 
-  private 
+  private
 
   def perform_search
-    Sunsport.search(Shout::CONTENT_TYPES) do
+    Shout.search do
       fulltext query
+    end
   end
 
   def query
     params[:search][:query]
   end
-
 end

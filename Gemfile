@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'monban' #authentication
 gem 'paperclip'
 gem 'sunspot_rails' #NEVER HEARD OF THIS GEM! (used for searching between models)
+gem 'progress_bar'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

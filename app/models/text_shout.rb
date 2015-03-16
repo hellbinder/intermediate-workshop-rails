@@ -1,5 +1,5 @@
 class TextShout < ActiveRecord::Base
-  searchable do
-    text :body
+  def index_content
+    body
   end
 end

@@ -6,6 +6,10 @@ class Shout < ActiveRecord::Base
 
   CONTENT_TYPES = DASHBOARD_TYPES
 
+  searchable do
+    text(:content) { content.index_content }
+  end
+
   default_scope { order(created_at: :desc) }
 
   belongs_to :user
@@ -18,7 +22,9 @@ class Shout < ActiveRecord::Base
   end
 
   def self.reshouts_for(shout)
-    reshouts.joins("JOIN reshouts ON reshouts.shout_id = #{shout.id}")
+    # reshouts.joins("JOIN reshouts ON reshouts.shout_id = #{shout.id}")
+    content = Reshout.for_shout(shout)
+    reshouts.where(content_id: content)
   end
 
   def self.without_reshouts_for(user)
@@ -36,13 +42,5 @@ class Shout < ActiveRecord::Base
 
   def reshouts
     self.class.reshouts_for(self)
-  end
-
-  def to_partial_path
-    if content_type == "Reshout"
-      "shouts/reshouts"
-    else
-      super
-    end
   end
 end
